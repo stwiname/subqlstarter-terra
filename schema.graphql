@@ -1,12 +1,11 @@
 type StarterBlock @entity {
   id: ID! #id is a required unique field
   height: String!
-  transfers: [StarterTransfer]
+  transfers: [StarterTransfer] @derivedFrom(field: "block")
 }
 
 type StarterTransfer @entity {
   id: ID! #id is a required unique field
-  height: String!
   block: StarterBlock
   sender: String!
   recipient: String!

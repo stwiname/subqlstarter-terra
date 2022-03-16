@@ -32,6 +32,7 @@ services:
     command:
       - -f=/app
       - --db-schema=app
+      - --batch-size=5
     healthcheck:
       test: ['CMD', 'curl', '-f', 'http://subquery-node:3000/ready']
       interval: 3s
@@ -39,7 +40,7 @@ services:
       retries: 10
 
   graphql-engine:
-    image: onfinality/subql-query:dev
+    image: onfinality/subql-query:latest
     ports:
       - 3000:3000
     depends_on:
