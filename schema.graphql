@@ -1,13 +1,13 @@
-type StarterEntity @entity {
+type Transfer @entity {
+  id: ID!
+  sender: String!
+  recipient: String!
+  amount: String!
+}
 
-  id: ID! #id is a required field
-
-  hash: String!
-
-  sender: [String]
-
-  recipient: [String]
-
-  amount: [String]
-
+type MsgSendEntity @entity {
+  id: ID!
+  toAddress: String!
+  fromAddress: String!
+  amount: String!
 }
