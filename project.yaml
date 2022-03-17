@@ -15,13 +15,20 @@ network:
 
 dataSources:
   - kind: terra/Runtime
-    startBlock: 6694554
+    startBlock: 6747920
     mapping:
       file: "./dist/index.js"
       handlers:
         - handler: handleBlock
           kind: terra/BlockHandler
+        - handler: handleTransaction
+          kind: terra/TransactionHandler
+        - handler: handleMessage
+          kind: terra/MessageHandler
+          filter:
+            type: '/cosmos.bank.v1beta1.MsgSend'
         - handler: handleEvent
           kind: terra/EventHandler
           filter:
             type: transfer
+        
