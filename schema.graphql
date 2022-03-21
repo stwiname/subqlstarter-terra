@@ -1,13 +1,13 @@
-type StarterBlock @entity {
-  id: ID! #id is a required unique field
-  height: String!
-  transfers: [StarterTransfer] @derivedFrom(field: "block")
-}
-
-type StarterTransfer @entity {
-  id: ID! #id is a required unique field
-  block: StarterBlock
+type Transfer @entity {
+  id: ID!
   sender: String!
   recipient: String!
+  amount: String!
+}
+
+type MsgSendEntity @entity {
+  id: ID!
+  toAddress: String!
+  fromAddress: String!
   amount: String!
 }
